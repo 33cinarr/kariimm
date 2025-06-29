@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Askımm Barısalimmiii</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url(RESIMLER/foto1.jpg); /* Buraya kendi fotoğrafının yolu */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            position: relative;
+            width: max-content;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #333;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 12px 30px;
+            margin: 0 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            position: relative;
+        }
+        #evet {
+            background-color: #4CAF50;
+            color: white;
+            transform-origin: center center;
+        }
+        #hayir {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ASKİİMMM BARİSALİMMİİİİ???</h1>
+        <button id="evet">EVET</button>
+        <button id="hayir">HAYIR</button>
+    </div>
+
+    <script>
+        const evetBtn = document.getElementById('evet');
+        const hayirBtn = document.getElementById('hayir');
+
+        let evetScale = 1;
+
+        hayirBtn.addEventListener('click', () => {
+            // EVET butonunu büyüt
+            evetScale += 0.1;
+            evetBtn.style.transform = `scale(${evetScale})`;
+
+            // HAYIR butonunu sayfa içinde rastgele konuma taşı
+            const pageWidth = window.innerWidth;
+            const pageHeight = window.innerHeight;
+            const btnWidth = hayirBtn.offsetWidth;
+            const btnHeight = hayirBtn.offsetHeight;
+
+            const maxX = pageWidth - btnWidth;
+            const maxY = pageHeight - btnHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            hayirBtn.style.position = 'fixed';
+            hayirBtn.style.left = randomX + 'px';
+            hayirBtn.style.top = randomY + 'px';
+        });
+
+        evetBtn.addEventListener('click', () => {
+            // EVET butonuna basınca diğer sayfaya git
+            window.location.href = 'seviyorum.html';
+        });
+    </script>
+</body>
+</html>
